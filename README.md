@@ -1,5 +1,6 @@
-# Dependencies
+# Running
 Written in Go. Requires SDL2 and SDL2-img libraries.
+Number keys select tile. click to place.
 
 # Writeup
 Warcraft 3 autotiling looks great, so I tried to reverse engineer it. Here are some samples:
