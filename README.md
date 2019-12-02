@@ -52,7 +52,3 @@ Remembering that 'tile height' is pre-determined in some arbitrary way.
 
 Here's the result I got:
 ![result](result.png)
-
-TODO: make it draw to the edge (I was getting out of bounds & being lazy by just not trying to draw there)
-
-TODO: make own textures
