@@ -17,10 +17,10 @@ import (
 const (
 	GAMEXRES  = 900
 	GAMEYRES  = 900
-	GRIDW     = 15
-	GRIDH     = 15
-	GRID_SZ_X = GAMEXRES / GRIDW
-	GRID_SZ_Y = GAMEYRES / GRIDH
+	GRIDW     = 16
+	GRIDH     = 16
+	GRID_SZ_X = GAMEXRES / (GRIDW - 1)
+	GRID_SZ_Y = GAMEYRES / (GRIDH - 1)
 )
 
 // thats number of verts, so theres actually 1 less grid square
@@ -110,8 +110,8 @@ func main() {
 			context.renderer.Clear()
 			context.renderer.SetDrawColor(0, 0, 0, 255)
 			context.renderer.FillRect(&sdl.Rect{0, 0, GAMEXRES, GAMEYRES})
-			for x := 0; x < GRIDW-2; x++ {
-				for y := 0; y < GRIDH-2; y++ {
+			for x := 0; x < GRIDW-1; x++ {
+				for y := 0; y < GRIDH-1; y++ {
 					//fmt.Print("Tile: ", x, y)
 					toRect := &sdl.Rect{
 						int32(x) * GRID_SZ_X,
@@ -190,20 +190,22 @@ func main() {
 func makeGrid() []int {
 	grid := []int{}
 	levelString := `
-		ddddddddddddddd
-		dddqddddddddddd
-		dmmmobbqddddddd
-		dmmoboooooodddd
-		dttbtotqttddddd
-		dmmmobbqddddddd
-		dmmmbbbqddddddd
-		dddqddddddddddd
-		ddddddddddddddd
-		ddddddddddddddd
-		ddddddddddddddd
-		ddddddddddddddd
-		ddddddddddddddd
-		ddddddddddddddd`
+		dddddddddddddddd
+		dddqdddddddddddd
+		dmmmobbqdddddddd
+		dmmobooooooddddd
+		dttbtotqttdddddd
+		dmmmobbqdddddddd
+		dmmmbbbqdddddddd
+		dddqdddddddddddd
+		dddddddddddddddd
+		dddddddddddddddd
+		dddddddddddddddd
+		dddddddddddddddd
+		dddddddddddddddd
+		dddddddddddddddd
+		dddddddddddddddd
+		dddddddddddddddd`
 
 	for _, c := range levelString {
 		for i := range tileDefs {
