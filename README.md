@@ -11,7 +11,7 @@ Changing the order of the round tiles to be the lowest:
 
 Here is what one of these textures looks like:
 
-![round tiles](roundTiles.png)
+![round tiles](roundtiles.png)
 
 Lets list some of the visible implementation details:
 * Tiles are ordered, like I alluded above. The order determines who's transitions will be drawn on top
