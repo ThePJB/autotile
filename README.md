@@ -20,8 +20,9 @@ Lets list some of the visible implementation details:
 * Marching squares is used to determine which tile(s) to draw
 * Marching squares distinguishes between only 'same tile' and 'different tile' for each case
 
-To give a quick rundown of marching squares. Consider that the grid is made up of vertices and 4 vertices share each face. Let us consider how to draw each face of the grid from the vertices.
-In this figure, a white vertex means 'our tile' and black vertex means 'no tile'. Red area is how we would draw 'our tile' for that configuration of vertices.
+To give a quick rundown of marching squares. Consider that the grid is made up of vertices and 4 vertices share each face, and we are figuring out how how to draw each face from its vertices.
+
+In this figure, a white vertex means 'chosen tile' and black vertex means 'other tile'. Red area is how we would draw 'chosen tile' for that configuration of vertices.
 
 ![marching squares](marchExample.png)
 
@@ -30,8 +31,9 @@ We have enumerated all possible cases. It is easy to number them in binary by as
 You will notice that this example looks similar to the game texture above. The differences are only because the vertices are numbered differently, like so:
 
 ![numbering](wc3Numbering.png)
-nb. a binary '1' means 'our tile' in that position
-binary '0' means 'some other tile' in that position
+
+nb. a binary '1' means 'chosen tile' in that position
+binary '0' means 'other tile' in that position
 
 Take another look at the sprite sheet and it will (hopefully) make sense.
 
@@ -52,4 +54,5 @@ Here's the result I got:
 ![result](result.png)
 
 TODO: make it draw to the edge (I was getting out of bounds & being lazy by just not trying to draw there)
+
 TODO: make own textures
