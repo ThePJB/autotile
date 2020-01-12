@@ -11,9 +11,6 @@ import (
 	"github.com/veandco/go-sdl2/sdl"
 )
 
-// placing
-// fix the indexing shit
-
 const (
 	GAMEXRES  = 900
 	GAMEYRES  = 900
@@ -54,23 +51,18 @@ func main() {
 	initIMG()
 	defer teardownIMG()
 
-	loadTextures() // using proc
+	loadTextures()
 
-	context.grid = makeGrid() // using fn
+	context.grid = makeGrid()
 
 	var mouseX, mouseY int32
 	var lmbDown bool
 
 	running := true
 	tStart := time.Now().UnixNano()
-	//tCurrentStart := float64(tStart) / 1000000000
-	//var tLastStart float64
+
 	for running {
 		tStart = time.Now().UnixNano()
-		//tLastStart = tCurrentStart
-		//tCurrentStart = float64(tStart) / 1000000000
-
-		//dt := tCurrentStart - tLastStart
 
 		// handle input
 		for event := sdl.PollEvent(); event != nil; event = sdl.PollEvent() {
@@ -156,13 +148,14 @@ func main() {
 			}
 
 			/*
-				var i int32
-				for i = 0; i < GRIDW; i++ {
-					context.renderer.FillRect(&sdl.Rect{-1 + i*GAMEXRES/GRIDW, 0, 2, GAMEYRES})
-				}
-				for i = 0; i < GRIDH; i++ {
-					context.renderer.FillRect(&sdl.Rect{0, -1 + i*GAMEYRES/GRIDH, GAMEXRES, 2})
-				}
+				// gridlines
+					var i int32
+					for i = 0; i < GRIDW; i++ {
+						context.renderer.FillRect(&sdl.Rect{-1 + i*GAMEXRES/GRIDW, 0, 2, GAMEYRES})
+					}
+					for i = 0; i < GRIDH; i++ {
+						context.renderer.FillRect(&sdl.Rect{0, -1 + i*GAMEYRES/GRIDH, GAMEXRES, 2})
+					}
 			*/
 			cx, cy := getVertex(getClickedVertex(mouseX, mouseY))
 			context.renderer.SetDrawColor(100, 200, 50, 128)
